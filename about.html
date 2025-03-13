@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Bloom Valley Nursery</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3d81542107.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          src="assets/Client1_LogoPalette2_96BAA0.png"
+          alt="Bloom Valley Nursery Logo"
+          width="100"
+        />
+      </a>
+      <!-- Hidden mobile menu -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </label>
+      <!-- Nav Links -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="custom.html">Testimonials</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Info Section -->
+    <section class="about-container">
+      <h1>About Bloom Valley Nursery</h1>
+      <p>
+        We are a family-owned nursery dedicated to providing high-quality plants
+        and gardening supplies.
+      </p>
+      <h2>Hours of Operation</h2>
+      <p>
+        Monday–Friday: 9 a.m. to 6 p.m.<br />Saturday–Sunday: 10 a.m. to 5 p.m.
+      </p>
+      <!-- Feedback Form -->
+      <form class="feedback-form">
+        <h3>Send us your feedback</h3>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" onclick="handleFeedbackSubmit(event)">
+          Submit
+        </button>
+      </form>
+    </section>
+    <footer>
+      <!-- Footer Navigation Links -->
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="custom.html">Testimonials</a></li>
+        </ul>
+      </nav>
+      <!-- Footer Newsletter Sign-up -->
+      <div class="newsletter-signup">
+        <label for="newsletter-email">Sign Up for Our Newsletter</label>
+        <div class="newsletter-input">
+          <input
+            type="email"
+            id="newsletter-email"
+            placeholder="Your email"
+            required
+          />
+          <button type="button" onclick="subscribe()">Subscribe</button>
+        </div>
+      </div>
+      <!-- Footer Social Media Links -->
+      <p>&copy; 2025 Bloom Valley Nursery | Follow us on social media</p>
+      <div class="social-icons">
+        <a
+          href="https://www.instagram.com/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.x.com/yourprofile" target="_blank" rel="noopener">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </footer>
+    <script>
+      function handleFeedbackSubmit(event) {
+        event.preventDefault();
+        const form = document.querySelector('.feedback-form');
+        const nameField = document.getElementById('name');
+        const emailField = document.getElementById('email');
+        const messageField = document.getElementById('message');
+
+        // Check if the form is valid
+        if (!form.checkValidity()) {
+          if (emailField.validity.typeMismatch) {
+            emailField.reportValidity();
+            return;
+          }
+          alert('Please complete the form.');
+        } else {
+          // Save to sessionStorage (only saving, not loading)
+          sessionStorage.setItem('name', nameField.value);
+          sessionStorage.setItem('email', emailField.value);
+          sessionStorage.setItem('message', messageField.value);
+
+          alert('Thank you for your message!');
+          form.reset(); // Reset the form fields after successful submission
+        }
+      }
+    </script>
+  </body>
+</html>

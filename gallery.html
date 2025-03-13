@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Bloom Valley Nursery</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3d81542107.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          src="assets/Client1_LogoPalette2_96BAA0.png"
+          alt="Bloom Valley Nursery Logo"
+          width="100"
+        />
+      </a>
+      <!-- View Cart Button -->
+      <button class="view-cart-btn" onclick="toggleCartModal()">
+        <i class="fas fa-shopping-cart"></i> View Cart
+      </button>
+      <!-- Hidden mobile menu -->
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </label>
+      <!-- Nav Links -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="custom.html">Testimonials</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Product Gallery Section -->
+    <section class="gallery">
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_AppleTree.png"
+          alt="Apple Tree"
+        />
+        <p>Apple Tree</p>
+        <button onclick="addToCart('Apple Tree')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_BirchTree.png"
+          alt="Birch Tree"
+        />
+        <p>Birch Tree</p>
+        <button onclick="addToCart('Birch Tree')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_MapleTree.png"
+          alt="Maple Tree"
+        />
+        <p>Maple Tree</p>
+        <button onclick="addToCart('Maple Tree')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_AloePlant.png"
+          alt="Aloe Vera Plant"
+        />
+        <p>Aloe Vera Plant</p>
+        <button onclick="addToCart('Aloe Vera Plant')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_SpiderPlant.png"
+          alt="Spider Plant"
+        />
+        <p>Spider Plant</p>
+        <button onclick="addToCart('Spider Plant')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_StringofPearls.png"
+          alt="String of Pearls Plant"
+        />
+        <p>String of Pearls Plant</p>
+        <button onclick="addToCart('String of Pearls Plant')">
+          Add to Cart
+        </button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_BirdHouse.png"
+          alt="Birdhouse"
+        />
+        <p>Birdhouse</p>
+        <button onclick="addToCart('Birdhouse')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="assets/Client1_PottingSoil.png"
+          alt="Potting Soil"
+        />
+        <p>Potting Soil</p>
+        <button onclick="addToCart('Potting Soil')">Add to Cart</button>
+      </div>
+      <div class="gallery-item">
+        <img
+          class="gallery-img"
+          src="/assets/Client1_WateringCan.png"
+          alt="Watering Can"
+        />
+        <p>Watering Can</p>
+        <button onclick="addToCart('Watering Can')">Add to Cart</button>
+      </div>
+    </section>
+
+    <footer>
+      <!-- Footer Navigation Links -->
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="custom.html">Testimonials</a></li>
+        </ul>
+      </nav>
+      <!-- Nesletter Sign-up Section -->
+      <div class="newsletter-signup">
+        <label for="newsletter-email">Sign Up for Our Newsletter</label>
+        <div class="newsletter-input">
+          <input
+            type="email"
+            id="newsletter-email"
+            placeholder="Your email"
+            required
+          />
+          <button type="button" onclick="subscribe()">Subscribe</button>
+        </div>
+      </div>
+      <!-- Social Media Links -->
+      <p>&copy; 2025 Bloom Valley Nursery | Follow us on social media</p>
+      <div class="social-icons">
+        <a
+          href="https://www.instagram.com/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.x.com/yourprofile" target="_blank" rel="noopener">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/yourprofile"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Modal Window for Cart -->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleCartModal()">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+          <!-- Cart items will be populated here -->
+        </div>
+        <div class="modal-buttons">
+          <button onclick="clearCart()">Clear Cart</button>
+          <button onclick="processOrder()">Process Order</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Check cart array in session storage
+      if (!sessionStorage.getItem('cart')) {
+        sessionStorage.setItem('cart', JSON.stringify([]));
+      }
+
+      function addToCart(productName) {
+        let cart = JSON.parse(sessionStorage.getItem('cart'));
+        cart.push(productName);
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        alert(productName + ' added to cart!');
+      }
+
+      function toggleCartModal() {
+        updateCartModal();
+        var modal = document.getElementById('cart-modal');
+        if (modal.style.display === 'block') {
+          modal.style.display = 'none';
+        } else {
+          modal.style.display = 'block';
+        }
+      }
+
+      function updateCartModal() {
+        let cart = JSON.parse(sessionStorage.getItem('cart'));
+        let cartItemsDiv = document.getElementById('cart-items');
+        if (cart.length === 0) {
+          cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        } else {
+          let html = '<ul>';
+          cart.forEach(function (item) {
+            html += '<li>' + item + '</li>';
+          });
+          html += '</ul>';
+          cartItemsDiv.innerHTML = html;
+        }
+      }
+
+      function clearCart() {
+        let cart = JSON.parse(sessionStorage.getItem('cart'));
+        if (cart.length === 0) {
+          alert('No Items to Clear!');
+        } else {
+          sessionStorage.setItem('cart', JSON.stringify([]));
+          alert('Cart Cleared!');
+          updateCartModal();
+        }
+      }
+
+      function processOrder() {
+        let cart = JSON.parse(sessionStorage.getItem('cart'));
+        if (cart.length === 0) {
+          alert('Cart Empty!');
+        } else {
+          alert('Thanks for your order!');
+          sessionStorage.setItem('cart', JSON.stringify([]));
+          updateCartModal();
+        }
+      }
+
+      // Close modal when clicking outside of modal
+      window.onclick = function (event) {
+        var modal = document.getElementById('cart-modal');
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      };
+    </script>
+  </body>
+</html>
